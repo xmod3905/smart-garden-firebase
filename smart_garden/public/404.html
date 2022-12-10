@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" type="image/x-icon" href="./img/icon.png">
+	<link type="text/css" rel="stylesheet" href="./css/style.min.css">
+	<title>404: Page Not Found</title>
+</head>
+<body>
+	<div class="grid" id="type">
+		<div class="card--weather container weather">
+			<div class="bg--illustration">
+				<div class="icon"></div>
+			</div>
+			<div class="weather--indicator" >
+				<h2>404</h2>
+				<h3>EN: Page Not Found</h3>
+				<h3>ID: Halaman Tidak Ditemukan</h3>
+				<h3>JP: ページが見つかりません</h3>
+				<h3>UTC: <span id="time"></span></h3>
+				<h3><span id="local-time"></span></h3>
+			</div>
+		</div>
+	</div>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script type="text/javascript">
+		function clock() {
+            const time = new Date();
+            const timeInHours = parseInt(time.toLocaleString("id-ID", {
+                hour: "numeric",
+                timeZone: "Asia/Jakarta",
+            }));
+            const dayClassName = ["day", "night"]
+            const isNight = timeInHours >= 18 || timeInHours < 6 ? 1 : 0;
+            $("#type").removeClass(dayClassName[isNight === 0 ? 1 : 0]).addClass(dayClassName[isNight]);
+            $("#time").html(time.toLocaleString("en-GB", {
+                timeZone: "UTC",
+                timeStyle: "long",
+                dateStyle: "long"
+            }));
+            $("#local-time").html(time.toLocaleString("id-ID", {
+                timeZone: "Asia/Jakarta",
+                timeStyle: "long",
+                dateStyle: "long"
+            }));
+		}
+        setTimeout(clock, 50)
+    </script>
+</html>

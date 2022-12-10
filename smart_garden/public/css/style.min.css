@@ -1,0 +1,270 @@
+:root {
+  --sun-color: #ffe65c;
+  --sun-color-rgba: #ffe65c;
+  --card-sunny: #ffa333ce;
+  --night: #2f3475ce;
+  --moon: #ebf3fe;
+  --moon-wave: rgb(79, 85, 148);
+  --snow-day: #1ec9ed;
+  --foreground-mountain: #82dff9;
+  --background-mountain: #00b4d8;
+}
+
+body,
+h1,
+h2,
+h3,
+html {
+  padding: 0;
+  margin: 0;
+  font-family: Poppins, sans-serif;
+}
+
+body {
+  background: url(../img/bg.webp) no-repeat;
+  background-position: center center;
+}
+
+.grid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  height: 100vh;
+}
+
+.weather {
+  width: 350px;
+  height: 500px;
+}
+
+.container {
+  position: relative;
+  overflow: hidden;
+  transition: 1s;
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(3.4px);
+  -webkit-backdrop-filter: blur(3.4px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.weather--indicator {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  color: #fff;
+  z-index: 2;
+}
+
+.weather--indicator h2 {
+  font-size: 5rem;
+}
+
+h2 #point {
+  font-size: 2rem;
+}
+
+h2 #temp-unit {
+  margin-left: -22px;
+}
+
+h3 {
+  display: flex;
+  align-items: center;
+}
+
+h3 i {
+  margin-right: 5px;
+}
+
+.night .weather--indicator {
+  text-shadow: 1px 3px #182067;
+}
+
+.day .weather--indicator {
+  text-shadow: 1px 3px #ff9306;
+}
+
+button {
+  border: none;
+  border-radius: 4px;
+  padding: 3px 12px;
+  background: var(--sun-color);
+  font-family: Poppins, sans-serif;
+  margin-bottom: 10px;
+  transition: 0.5s;
+}
+
+button:hover {
+  background: #e7cc30;
+}
+
+.night button {
+  background: var(--moon);
+}
+
+.night button:hover {
+  background: #cdd7e6;
+}
+
+.day .container {
+  background-color: var(--card-sunny);
+  box-shadow: 0 5px 10px var(--card-sunny);
+  animation: 0.3s ease-in-out sunny-hover--back both;
+}
+
+.card--weather.day:hover {
+  animation: 0.3s ease-in-out 0s sunny-hover both;
+}
+
+.card--weather.night:hover {
+  animation: 0.3s ease-in-out 0s moon-hover both;
+}
+
+.card--weather.snow-day:hover {
+  animation: 0.3s ease-in-out 0s snow-hover both;
+}
+
+.icon {
+  transition: 1s;
+}
+
+.day .icon {
+  width: 10rem;
+  height: 10rem;
+  border-radius: 100%;
+  position: absolute;
+  top: -4rem;
+  right: -2.8rem;
+  background-color: var(--sun-color);
+  animation: sun-rays 4s infinite;
+  box-shadow: 0 0 1rem #ffc06266, 0 0 0 2.8rem #ffc666, 0 0 0 3rem #ffaf49, 0 0 0 4.8rem #ffb14d;
+}
+
+.night .container {
+  background-color: var(--night);
+  box-shadow: 0 5px 10px var(--night);
+  animation: 0.3s ease-in-out moon-hover--back both;
+}
+
+.snow-day {
+  background-color: var(--snow-day);
+  box-shadow: 0 5px 10px var(--snow-day);
+  animation: 0.3s ease-in-out snow-hover--back both;
+}
+
+.night .icon {
+  width: 5rem;
+  height: 5rem;
+  background-color: var(--moon);
+  border-radius: 100%;
+  position: absolute;
+  top: 2rem;
+  right: 1.5rem;
+  animation: moon-rays 4s infinite;
+  box-shadow: 0 0 1rem #4f5594, 0 0 0 1.5rem #4f5594, 0 0 3rem #4f5594, 0 0 0 3.5rem #414989,
+    0 0 5rem #2c3472;
+}
+
+.chart {
+  display: block;
+  height: 300px;
+  width: 500px;
+  margin-left: 10px;
+  padding: 25px;
+}
+
+@keyframes snow-hover {
+  0% {
+    box-shadow: 0 5px 10px var(--snow-day);
+  }
+
+  100% {
+    box-shadow: 0 10px 20px var(--snow-day);
+  }
+}
+
+@keyframes snow-hover--back {
+  0% {
+    box-shadow: 0 10px 20px var(--snow-day);
+  }
+
+  100% {
+    box-shadow: 0 5px 10px var(--snow-day);
+  }
+}
+
+@keyframes moon-hover {
+  0% {
+    box-shadow: 0 5px 10px var(--night);
+  }
+
+  100% {
+    box-shadow: 0 10px 20px var(--night);
+  }
+}
+
+@keyframes moon-hover--back {
+  0% {
+    box-shadow: 0 10px 20px var(--night);
+  }
+
+  100% {
+    box-shadow: 0 5px 10px var(--night);
+  }
+}
+
+@keyframes sunny-hover {
+  0% {
+    box-shadow: 0 5px 10px var(--card-sunny);
+  }
+
+  100% {
+    box-shadow: 0 10px 20px var(--card-sunny);
+  }
+}
+
+@keyframes sunny-hover--back {
+  0% {
+    box-shadow: 0 10px 20px var(--card-sunny);
+  }
+
+  100% {
+    box-shadow: 0 5px 10px var(--card-sunny);
+  }
+}
+
+@keyframes sun-rays {
+  0% {
+    box-shadow: 0 0 1rem rgba(255, 192, 98, 0.4), 0 0 0 2.8rem #ffc666, 0 0 0 3rem #ffaf49,
+      0 0 0 4.8rem #ffb14d;
+  }
+
+  50% {
+    box-shadow: 0 0 0.8rem rgba(255, 192, 98, 0.4), 0 0 0 2.2rem #ffc666, 0 0 0 2.8rem #ffaf49,
+      0 0 0 4.4rem #ffb14d;
+  }
+
+  100% {
+    box-shadow: 0 0 1rem rgba(255, 192, 98, 0.4), 0 0 0 2.8rem #ffc666, 0 0 0 3rem #ffaf49,
+      0 0 0 4.8rem #ffb14d;
+  }
+}
+
+@keyframes moon-rays {
+  0% {
+    box-shadow: 0 0 1rem #4f5594, 0 0 0 1.5rem #4f5594, 0 0 3rem #4f5594, 0 0 0 3.5rem #414989,
+      0 0 5rem #2c3472;
+  }
+
+  50% {
+    box-shadow: 0 0 1rem #4f5594, 0 0 0 1.8rem #4f5594, 0 0 3rem #4f5594, 0 0 0 3.3rem #414989,
+      0 0 5rem #2c3472;
+  }
+
+  100% {
+    box-shadow: 0 0 1rem #4f5594, 0 0 0 1.5rem #4f5594, 0 0 3rem #4f5594, 0 0 0 3.5rem #414989,
+      0 0 5rem #2c3472;
+  }
+}

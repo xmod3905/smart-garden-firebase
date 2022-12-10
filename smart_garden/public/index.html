@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" type="image/x-icon" href="./img/icon.png">
+	<link type="text/css" rel="stylesheet" href="./css/style.min.css">
+	<link type="text/css" rel="stylesheet" href="./css/dygraph.min.css" />
+	<link type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link type="text/css" href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+	<title>Smart Garden TEKKOM</title>
+</head>
+<body>
+	<div class="grid" id="type">
+		<div class="container weather">
+			<div class="bg--illustration">
+				<div class="icon"></div>
+			</div>
+			<div class="weather--indicator" >
+				<h2>
+					<span id="temp">**</span><span id="point">.**</span><span id="temp-unit" >º?</span>
+				</h2>
+				<button id="unit-change">Change to º?</button>
+				<h3>Kelembapan Udara: <span id="humid">(tunggu)</span>% </h3>
+				<h3>Kelembapan Tanah: <span id="soil">(tunggu)</span>% </h3>
+				
+				<h3>Dew Point:<span id="daw_point">(tunggu)</span>ºC</h3>
+				<h3>Heat Index:<span id="heat_index">(tunggu)</span>ºC</h3>
+				<h3>Pompa:<span id="pump">(tunggu)</span></h3>
+			</div>
+		</div>
+		<div class="container chart">
+			<div id="chart"></div>
+		</div>
+
+		<div class="container chart">
+			<div id="humChart"></div>
+		</div>
+	</div>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script type="text/javascript" src="./js/dygraph.min.js"></script>
+	<script type="module" src="./js/general.min.js"></script>
+</html>
